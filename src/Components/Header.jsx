@@ -1,10 +1,11 @@
-import { Link, NavLink } from "react-router";
-import logo from "../assets/logo.PNG";
-import { AuthContext } from "../Context/AuthContext";
 import { use } from "react";
-import { Slide, toast } from "react-toastify";
-import userImg from "../assets/user.png";
 import { CiLogin, CiLogout } from "react-icons/ci";
+import { Link, NavLink } from "react-router";
+import { Slide, toast } from "react-toastify";
+import logo from "../assets/logo.PNG";
+import userImg from "../assets/user.png";
+import { AuthContext } from "../Context/AuthContext";
+import '../app.css'
 
 const Header = () => {
   const { user, userSignout } = use(AuthContext);
@@ -26,8 +27,8 @@ const Header = () => {
       });
   };
   return (
-    <div className="px-5">
-      <div className="navbar  max-w-[1420px]  rounded-lg mt-7 mx-auto pr-3 sm:px-5 h-17 backdrop-blur-md backdrop-saturate-150 bg-gray-100/80">
+    <div className="  bg-gray-100">
+      <div className="navbar  max-w-[1420px]  rounded-lg mx-auto px-5 h-20 backdrop-blur-md backdrop-saturate-150">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -53,7 +54,7 @@ const Header = () => {
             >
               <li>
                 <div className="avatar space-x-2 py-2.5">
-                  <div className="ring-btn ring-offset-base-100 w-8 h-8 rounded-full ring-2 ring-offset-2">
+                  <div className="ring-btn ring-offset-base-100 w-8 h-8 rounded-full ring-1 ring-offset-2">
                     <img src={user ? user?.photoURL : userImg} />
                   </div>
                   <NavLink className="text-base font-medium" to={"/my-profile"}>
@@ -62,10 +63,19 @@ const Header = () => {
                 </div>
               </li>
               <li className="text-base font-medium">
-                <NavLink to={"/"}>Apps</NavLink>
+                <NavLink to={"/"}>Home</NavLink>
               </li>
               <li className="text-base font-medium">
-                <NavLink to={"/contact"}>Contact</NavLink>
+                <NavLink to={"/explore-gardeners"}>Explore Gardeners</NavLink>
+              </li>
+              <li className="text-base font-medium">
+                <NavLink to={"/tips"}>Browse Tips</NavLink>
+              </li>
+              <li className="text-base font-medium">
+                <NavLink to={"/share-tips"}>Share a Garden Tip</NavLink>
+              </li>
+              <li className="text-base font-medium">
+                <NavLink to={"/my-tips"}>My Tips</NavLink>
               </li>
             </ul>
           </div>
@@ -75,40 +85,64 @@ const Header = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="flex gap-3">
-            <li className="text-base font-medium">
+            <li className="text-base font-medium ">
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "border-b-2 p-1 border-btn"
-                    : "hover:border-b-2 p-1 border-btn"
+                    ? "border-b-2 p-1 border-black"
+                    : "hover:border-b-2 p-1 border-black"
                 }
                 to={"/"}
               >
-                Apps
+                Home
               </NavLink>
             </li>
             <li className="text-base font-medium">
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "border-b-2 p-1 border-btn"
-                    : " hover:border-b-2 p-1 border-btn"
+                   ? "border-b-2 p-1 border-black"
+                    : "hover:border-b-2 p-1 border-black"
                 }
-                to={"/my-profile"}
+                to={"/explore-gardeners"}
               >
-                My Profile
+                Explore Gardeners
               </NavLink>
             </li>
             <li className="text-base font-medium">
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "border-b-2 p-1 border-btn"
-                    : " hover:border-b-2 p-1 border-btn"
+                   ? "border-b-2 p-1 border-black"
+                    : "hover:border-b-2 p-1 border-black"
                 }
-                to={"/contact"}
+                to={"/tips"}
               >
-                Contact
+                 Browse Tips
+              </NavLink>
+            </li>
+            <li className="text-base font-medium">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 p-1 border-black"
+                    : "hover:border-b-2 p-1 border-black"
+                }
+                to={"/share-tips"}
+              >
+                 Share a Garden Tip
+              </NavLink>
+            </li>
+            <li className="text-base font-medium">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 p-1 border-black"
+                    : "hover:border-b-2 p-1 border-black"
+                }
+                to={"/my-tips"}
+              >
+                My Tips
               </NavLink>
             </li>
           </ul>
@@ -117,7 +151,7 @@ const Header = () => {
           <NavLink to={"/my-profile"}>
             <div className="group flex flex-col">
               <img
-                className="hidden sm:inline ring-btn ring-offset-base-100 w-10 h-10 rounded-full ring-2 ring-offset-2 cursor-pointer"
+                className="hidden sm:inline ring-btn ring-offset-base-100 w-10 h-10 rounded-full ring-1 ring-offset-3 cursor-pointer"
                 src={user?.photoURL ? user?.photoURL : userImg}
               />
               <p className="absolute top-13 z-10 bg-black text-white text-base px-3 rounded-full hidden group-hover:inline">
@@ -128,16 +162,17 @@ const Header = () => {
           {user ? (
             <button
               onClick={handleSignOut}
-              className="btn bg-btn text-white shadow-none px-7 sm:px-10 flex items-center"
+              className="btn bg-gradient-to-r from-[#33622a] to-[#94b834] text-white shadow-none px-7 sm:px-10 flex items-center"
             >
-             <CiLogout size={22} /> Logout
+              <CiLogout size={22} /> Logout
             </button>
           ) : (
             <Link
-              className="btn bg-btn text-white shadow-none px-7 sm:px-10 flex items-center"
+              className="btn bg-gradient-to-r from-[#33622a] to-[#94b834] text-white shadow-none px-7 sm:px-10 flex items-center"
               to={"/auth/login"}
             >
-              Login<CiLogin size={22} />
+              Login
+              <CiLogin size={22} />
             </Link>
           )}
         </div>
