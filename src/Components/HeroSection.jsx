@@ -25,9 +25,9 @@ const HeroSection =()=> {
         modules={[Autoplay,Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide><img className='h-58 sm:h-[350px] md:h-[450px] lg:h-[580px] w-full object-fill rounded-2xl' src={slide1} alt="" /></SwiperSlide>
-        <SwiperSlide><img className='h-58 sm:h-[350px] md:h-[450px] lg:h-[580px] w-full object-fill rounded-2xl' src={slide2} alt="" /></SwiperSlide>
-        <SwiperSlide><img className='h-58 sm:h-[350px] md:h-[450px] lg:h-[580px] w-full object-cover rounded-2xl' src={slide3} alt="" /></SwiperSlide>
+        <SwiperSlide><img className='h-50 sm:h-[350px] md:h-[450px] lg:h-[580px] w-full object-fill rounded-2xl' src={slide1} alt="" /></SwiperSlide>
+        <SwiperSlide><img className='h-50 sm:h-[350px] md:h-[450px] lg:h-[580px] w-full object-fill rounded-2xl' src={slide2} alt="" /></SwiperSlide>
+        <SwiperSlide><img className='h-50 sm:h-[350px] md:h-[450px] lg:h-[580px] w-full object-cover rounded-2xl' src={slide3} alt="" /></SwiperSlide>
       </Swiper>
     </>
   );
