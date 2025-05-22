@@ -135,45 +135,45 @@ const SignUp = () => {
       });
   };
   return (
-    <div className="hero bg-base-200 rounded-lg min-h-screen mb-10 flex flex-col items-center justify-center px-5 py-10">
+    <div className="hero bg-base-200 rounded-lg min-h-screen mb-10 flex flex-col items-center justify-center px-5 py-10 dark:bg-[#0f172a]">
       <div className="space-y-4">
         <img className="w-18 mx-auto" src={icon} alt="" />
-        <h1 className="text-2xl sm:text-3xl font-bold font-heading text-center text-gray-600">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-600 dark:text-[#e2e8f0]">
           Create your account
         </h1>
-        <p className="text-base font-medium font-text text-center text-gray-500">
+        <p className="text-base font-medium text-center text-gray-500 dark:text-[#94a3b8]">
           Please enter your details to Register.
         </p>
       </div>
-      <div className="card bg-base-100 w-full max-w-md shrink-0 rounded-lg shadow-2xl mt-5">
+      <div className="card bg-base-100 w-full max-w-md shrink-0 rounded-lg shadow-2xl mt-5 dark:bg-[#0b1120]">
         <div className="card-body">
           <form onSubmit={handleRegister} className="fieldset">
-            <label className="label text-base font-normal font-heading">Name</label>
+            <label className="label text-sm font-normal">Name</label>
             <input
               type="text"
               name="name"
-              className="border font-text border-gray-300 py-2 px-2 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal"
+              className="border border-gray-300 py-2 px-2 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0"
               placeholder="Name"
             />
-            <label className="label text-base font-normal font-heading">Photo Url</label>
+            <label className="label text-sm font-normal mt-1.5">Photo Url</label>
             <input
               type="text"
               name="imgUrl"
-              className="border border-gray-300 py-2 px-2 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal font-text"
+              className="border border-gray-300 py-2 px-2 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0" 
               placeholder="User Image url"
             />
-            <label className="label text-base font-normal font-heading">Email</label>
+            <label className="label text-sm font-normal mt-1.5">Email</label>
             <input
               type="email"
               name="email"
-              className="border border-gray-300 py-2 px-2 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal font-text"
+              className="border border-gray-300 py-2 px-2 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0"
               placeholder="Email"
             />
-            <label className="label text-base font-normal mt-1 font-heading">Password</label>
+            <label className="label text-sm font-normal mt-1.5">Password</label>
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
-                className="border border-gray-300 py-2 px-2 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal font-text"
+                className="border border-gray-300 py-2 px-2 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0"
                 placeholder="Password"
                 name="password"
               />
@@ -195,7 +195,7 @@ const SignUp = () => {
             >
               Register
             </button>
-            <p className="text-base text-accent-content font-medium mt-3 text-center ">
+            <p className="text-base dark:text-white text-accent-content font-medium mt-3 text-center ">
               Alrady have an account !{" "}
               <Link to={"/auth/login"} className="text-[#94b834]">
                 Login

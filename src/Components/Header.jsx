@@ -34,8 +34,8 @@ const Header = () => {
       });
   };
   return (
-    <div className="bg-[#f5f8fb]/60 dark:bg-[#0d1424]/30">
-      <div className="navbar  max-w-[1420px]  rounded-lg mx-auto px-5 h-20 backdrop-blur-md backdrop-saturate-150">
+    <div className="">
+      <div className="navbar  max-w-[1420px] rounded-lg mx-auto px-5 h-20 backdrop-blur-md backdrop-saturate-150">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
