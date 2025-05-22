@@ -33,7 +33,6 @@ const Login = () => {
         })
     }
     const handleSignInWithGoogle = () =>{
-        console.log('object');
         userGoogleSignIn()
         .then(()=>{
             toast.success("🎉 Login successful ", {

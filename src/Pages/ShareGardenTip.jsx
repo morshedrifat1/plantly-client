@@ -1,8 +1,10 @@
-import React from "react";
+import React, { use } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
 
 const ShareGardenTip = () => {
+    const{user}=use(AuthContext)
   const handleAddTips = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -131,7 +133,7 @@ const ShareGardenTip = () => {
                   name="email"
                   type="email"
                   placeholder="Enter Your Email"
-                  value={"admin@gmail.com"}
+                  value={user?.email}
                   className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
@@ -144,7 +146,7 @@ const ShareGardenTip = () => {
                   name="name"
                   type="text"
                   placeholder="Enter Your Name"
-                  value={"Morshed Rifat"}
+                  value={user?.displayName}
                   className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
