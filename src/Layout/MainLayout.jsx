@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Components/Header';
 import { Outlet } from 'react-router';
 import Footer from '../Components/Footer';
+import LoadingSpiner from '../Components/LoadingSpiner';
 
 const MainLayout = () => {
     return (
@@ -10,7 +11,7 @@ const MainLayout = () => {
                 <Header></Header>
             </header>
             <main>
-                <Outlet></Outlet>
+                {navigation.state === "loading" ? <LoadingSpiner></LoadingSpiner> : <Outlet />}
             </main>
             <footer>
                 <Footer></Footer>

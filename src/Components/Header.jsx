@@ -11,7 +11,6 @@ const Header = () => {
   const { user, userSignout } = use(AuthContext);
   const [darkMode, setDarkMode] = useState(false);
   const [logoutShow,setLogoutShow] = useState(false);
-  console.log(logoutShow);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
