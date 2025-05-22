@@ -1,14 +1,21 @@
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 import { CiLogin, CiLogout } from "react-icons/ci";
 import { Link, NavLink } from "react-router";
 import { Slide, toast } from "react-toastify";
 import logo from "../assets/logo.PNG";
+import darkLogo from "../assets/logoDark.png";
 import userImg from "../assets/user.png";
 import { AuthContext } from "../Context/AuthContext";
-import '../app.css'
 
 const Header = () => {
   const { user, userSignout } = use(AuthContext);
+  const [darkMode,setDarkMode] = useState(false);
+  const toggleDarkMode = () =>{
+    setDarkMode(!darkMode)
+  }
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
   const handleSignOut = () => {
     userSignout()
       .then(() => {
@@ -27,7 +34,7 @@ const Header = () => {
       });
   };
   return (
-    <div className="  bg-gray-100">
+    <div className="bg-[#f5f8fb]/60 dark:bg-[#0d1424]/30">
       <div className="navbar  max-w-[1420px]  rounded-lg mx-auto px-5 h-20 backdrop-blur-md backdrop-saturate-150">
         <div className="navbar-start">
           <div className="dropdown">
@@ -77,10 +84,28 @@ const Header = () => {
               <li className="text-base font-medium">
                 <NavLink to={"/my-tips"}>My Tips</NavLink>
               </li>
+              <li>
+                {user ? (
+            <button
+              onClick={handleSignOut}
+              className="btn bg-gradient-to-r from-[#33622a] to-[#94b834] text-white shadow-none px-5 sm:px-10 flex items-center"
+            >
+              <CiLogout size={22} /> Logout
+            </button>
+          ) : (
+            <Link
+              className="btn bg-gradient-to-r from-[#33622a] to-[#94b834] text-white shadow-none px-5 sm:px-10 flex items-center"
+              to={"/auth/login"}
+            >
+              Login
+              <CiLogin size={22} />
+            </Link>
+          )}
+              </li>
             </ul>
           </div>
           <Link to={"/"}>
-            <img className="w-40" src={logo} alt="" />
+            <img className="w-40" src={darkMode?darkLogo:logo} alt="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -89,8 +114,8 @@ const Header = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "border-b-2 p-1 border-black"
-                    : "hover:border-b-2 p-1 border-black"
+                    ? "border-b-2 p-1 border-black dark:border-white dark:border-white"
+                    : "hover:border-b-2 p-1 border-black dark:border-white"
                 }
                 to={"/"}
               >
@@ -101,8 +126,8 @@ const Header = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                   ? "border-b-2 p-1 border-black"
-                    : "hover:border-b-2 p-1 border-black"
+                   ? "border-b-2 p-1 border-black dark:border-white dark:border-white"
+                    : "hover:border-b-2 p-1 border-black dark:border-white"
                 }
                 to={"/explore-gardeners"}
               >
@@ -113,8 +138,8 @@ const Header = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                   ? "border-b-2 p-1 border-black"
-                    : "hover:border-b-2 p-1 border-black"
+                   ? "border-b-2 p-1 border-black dark:border-white dark:border-white"
+                    : "hover:border-b-2 p-1 border-black dark:border-white"
                 }
                 to={"/tips"}
               >
@@ -125,8 +150,8 @@ const Header = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "border-b-2 p-1 border-black"
-                    : "hover:border-b-2 p-1 border-black"
+                    ? "border-b-2 p-1 border-black dark:border-white dark:border-white"
+                    : "hover:border-b-2 p-1 border-black dark:border-white"
                 }
                 to={"/share-tips"}
               >
@@ -137,8 +162,8 @@ const Header = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "border-b-2 p-1 border-black"
-                    : "hover:border-b-2 p-1 border-black"
+                    ? "border-b-2 p-1 border-black dark:border-white dark:border-white"
+                    : "hover:border-b-2 p-1 border-black dark:border-white"
                 }
                 to={"/my-tips"}
               >
@@ -149,9 +174,9 @@ const Header = () => {
         </div>
         <div className="navbar-end space-x-5 relative">
           <NavLink to={"/my-profile"}>
-            <div className="group flex flex-col">
+            <div className="group flex flex-col ">
               <img
-                className="hidden sm:inline ring-btn ring-offset-base-100 w-10 h-10 rounded-full ring-1 ring-offset-3 cursor-pointer"
+                className="hidden sm:inline ring-btn  w-10 h-10 rounded-full ring-1 ring-offset-3 cursor-pointer bg-[#f5f8fb]"
                 src={user?.photoURL ? user?.photoURL : userImg}
               />
               <p className="absolute top-13 z-10 bg-black text-white text-base px-3 rounded-full hidden group-hover:inline">
@@ -159,16 +184,52 @@ const Header = () => {
               </p>
             </div>
           </NavLink>
+                    <div>
+            <label className="flex cursor-pointer gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+            </svg>
+            <input
+              type="checkbox"
+              className="toggle theme-controller border border-black dark:border-gray-100"
+              onClick={toggleDarkMode}
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </label>
+          </div>
           {user ? (
             <button
               onClick={handleSignOut}
-              className="btn bg-gradient-to-r from-[#33622a] to-[#94b834] text-white shadow-none px-7 sm:px-10 flex items-center"
+              className="btn bg-gradient-to-r from-[#33622a] to-[#94b834] text-white shadow-none px-5 sm:px-10 sm:flex items-center hidden"
             >
               <CiLogout size={22} /> Logout
             </button>
           ) : (
             <Link
-              className="btn bg-gradient-to-r from-[#33622a] to-[#94b834] text-white shadow-none px-7 sm:px-10 flex items-center"
+              className="btn bg-gradient-to-r from-[#33622a] to-[#94b834] text-white shadow-none px-5 sm:px-10 sm:flex items-center hidden"
               to={"/auth/login"}
             >
               Login
