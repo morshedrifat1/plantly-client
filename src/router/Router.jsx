@@ -10,6 +10,7 @@ import BrowseTips from "../Pages/BrowseTips";
 import ShareGardenTip from "../Pages/ShareGardenTip";
 import MyTips from "../Pages/MyTips";
 import ErrorPage from "../Pages/ErrorPage";
+import UpdateTips from "../Pages/UpdateTips";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +24,8 @@ export const router = createBrowserRouter([
         {path:'/explore-gardeners',Component:ExploreGardeners},
         {path:'/tips',Component:BrowseTips},
         {path:'/share-tips',Component:ShareGardenTip},
-        {path:'/my-tips',Component:MyTips}
+        {path:'/my-tips',Component:MyTips},
+        {path:'/update-tips',Component:UpdateTips}
 
     ]
   },

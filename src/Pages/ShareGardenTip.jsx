@@ -25,7 +25,7 @@ const ShareGardenTip = () => {
         </Link>
         <div className="bg-[#f8fbfe] dark:bg-[#0b1120] p-5 md:p-20 mt-12 rounded-lg">
           <h1 className="font-heading text-3xl sm:text-4xl text-center text-heading font-bold">
-            Share a Garden Tip
+            🌱Share a Garden Tips
           </h1>
           <p className="font-text text-gray-500 text-base text-center max-w-[650px] mx-auto mt-5 leading-7">
             Encourage users to share their favorite gardening advice, tricks, or
@@ -34,7 +34,7 @@ const ShareGardenTip = () => {
             knowledge and inspire green thumbs! 🌱
           </p>
           <form onSubmit={handleAddTips} className="mt-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="col-span-2 sm:col-span-1">
                 <label className="label text-base dark:text-[#94a3b8] font-normal mt-1 font-text">
                   Title
@@ -166,7 +166,7 @@ const ShareGardenTip = () => {
                 <input
                   type="submit"
                   value="Add Tips"
-                  className="text-white bg-gradient-to-r from-[#33622a] to-[#94b834] rounded-lg text-lg py-2.5 flex items-center justify-center gap-2 mx-auto mt-5 w-full"
+                  className="text-white bg-gradient-to-r from-[#33622a] to-[#94b834] rounded-lg text-base py-2 flex items-center justify-center gap-2 mx-auto mt-5 w-[200px]"
                 />
               </div>
             </div>
