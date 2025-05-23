@@ -39,7 +39,7 @@ const Header = () => {
   };
   return (
     <div>
-      <div className="navbar  max-w-[1420px] rounded-lg mx-auto px-5 h-20 backdrop-blur-md backdrop-saturate-150">
+      <div className="navbar  max-w-[1420px] rounded-lg mx-auto px-5 h-20 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost xl:hidden">
@@ -83,7 +83,7 @@ const Header = () => {
                 <NavLink to={"/tips"}>Browse Tips</NavLink>
               </li>
               <li className="text-base font-medium">
-                <NavLink to={"/share-tips"}>Share a Garden Tip</NavLink>
+                <NavLink to={"/share-tips"}>Share a Garden Tips</NavLink>
               </li>
               <li className="text-base font-medium">
                 <NavLink to={"/my-tips"}>My Tips</NavLink>
@@ -159,7 +159,7 @@ const Header = () => {
                 }
                 to={"/share-tips"}
               >
-                Share a Garden Tip
+                Share a Garden Tips
               </NavLink>
             </li>
             <li className="text-base font-medium">
@@ -172,18 +172,6 @@ const Header = () => {
                 to={"/my-tips"}
               >
                 My Tips
-              </NavLink>
-            </li>
-            <li className="text-base font-medium">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "border-b-2 p-1 border-black dark:border-white dark:border-white"
-                    : "hover:border-b-2 p-1 border-black dark:border-white"
-                }
-                to={"/update-tips"}
-              >
-                Update Tips
               </NavLink>
             </li>
           </ul>

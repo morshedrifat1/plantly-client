@@ -17,7 +17,7 @@ const Login = () => {
         console.log(email,password);
         userLogin(email,password)
         .then(()=>{
-            toast.success("🎉 Login successful ", {
+            toast.success("Login successful ", {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,
@@ -35,7 +35,7 @@ const Login = () => {
     const handleSignInWithGoogle = () =>{
         userGoogleSignIn()
         .then(()=>{
-            toast.success("🎉 Login successful ", {
+            toast.success("Login successful ", {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,

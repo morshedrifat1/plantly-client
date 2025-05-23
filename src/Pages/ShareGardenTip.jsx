@@ -1,8 +1,8 @@
-import React, { use } from "react";
+import { use } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router";
-import { AuthContext } from "../Context/AuthContext";
 import { Slide, toast } from "react-toastify";
+import { AuthContext } from "../Context/AuthContext";
 
 const ShareGardenTip = () => {
     const{user}=use(AuthContext);
@@ -25,7 +25,7 @@ const ShareGardenTip = () => {
     .then((data)=>{
       if(data.insertedId){
         e.target.reset();
-        toast.success("🎉 Tips add successful ", {
+        toast.success("Tips add successful ", {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,
@@ -89,12 +89,12 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <select
-                required
+                  required
                   className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
-                  defaultValue="Select Level"
+                  defaultValue=""
                   name="workLevel"
                 >
-                  <option disabled={true}>
+                  <option value='' disabled className="dark:text-[#94a3b8]" >
                     Select Level
                   </option>
                   <option>Easy</option>
@@ -108,12 +108,12 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <select
-                required
+                  required
                   className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
-                  defaultValue="Select Category"
+                  defaultValue=""
                   name="category"
                 >
-                  <option className="dark:text-[#94a3b8]" disabled={true}>
+                  <option value='' className="dark:text-[#94a3b8]" disabled>
                     Select Category
                   </option>
                   <option className="dark:text-[#94a3b8]">Composting</option>
@@ -129,10 +129,10 @@ const ShareGardenTip = () => {
                 <select
                 required
                   className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
-                  defaultValue="Availability (Public or Hidden)"
+                  defaultValue=""
                   name="availability"
                 >
-                  <option disabled={true}>
+                  <option value='' disabled className="dark:text-[#94a3b8]" >
                     Availability (Public or Hidden)
                   </option>
                   <option>Public</option>
@@ -158,11 +158,11 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <input
-                required
+                readOnly
                   name="email"
                   type="email"
                   placeholder="Enter Your Email"
-                  value={user?.email}
+                  defaultValue={user?.email}
                   className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
@@ -172,11 +172,11 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <input
-                required
+                readOnly
                   name="name"
                   type="text"
                   placeholder="Enter Your Name"
-                  value={user?.displayName}
+                  defaultValue={user?.displayName}
                   className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>

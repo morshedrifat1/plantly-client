@@ -102,7 +102,7 @@ const SignUp = () => {
     }
     userSignup(email, password)
       .then(() => {
-        toast.success("🎉 Registration successful ", {
+        toast.success("Registration successful ", {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,
@@ -120,7 +120,7 @@ const SignUp = () => {
   const handleSignInWithGoogle = () => {
     userGoogleSignIn()
       .then(() => {
-        toast.success("🎉 Login successful ", {
+        toast.success("Login successful ", {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,
