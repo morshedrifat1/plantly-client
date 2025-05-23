@@ -42,7 +42,7 @@ const UpdateTips = () => {
                   name="title"
                   type="text"
                   placeholder="Plant Tips Title"
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
               <div className="col-span-2 sm:col-span-1">
@@ -54,7 +54,7 @@ const UpdateTips = () => {
                   name="topic"
                   type="text"
                   placeholder="Enter Plant Type/Topic"
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
               <div className="col-span-2 sm:col-span-1">
@@ -63,7 +63,7 @@ const UpdateTips = () => {
                 </label>
                 <br />
                 <select
-                  className="border border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                   defaultValue="Select Level"
                   name="workLevel"
                 >
@@ -79,7 +79,7 @@ const UpdateTips = () => {
                 </label>
                 <br />
                 <select
-                  className="border border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                   defaultValue="Select Category"
                   name="category"
                 >
@@ -97,7 +97,7 @@ const UpdateTips = () => {
                 </label>
                 <br />
                 <select
-                  className="border border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                   defaultValue="Availability (Public or Hidden)"
                   name="availability"
                 >
@@ -117,7 +117,7 @@ const UpdateTips = () => {
                   name="photos"
                   type="text"
                   placeholder="Enter photo URL"
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
               <div className="col-span-2 sm:col-span-1">
@@ -130,7 +130,7 @@ const UpdateTips = () => {
                   type="email"
                   placeholder="Enter Your Email"
                   value={user?.email}
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
               <div className="col-span-2 sm:col-span-1">
@@ -143,7 +143,7 @@ const UpdateTips = () => {
                   type="text"
                   placeholder="Enter Your Name"
                   value={user?.displayName}
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
               <div className="col-span-2">
@@ -155,7 +155,7 @@ const UpdateTips = () => {
                   name="description"
                   type="text"
                   placeholder="Write Your Tips"
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1 h-20"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1 h-20"
                 />
               </div>
               <div className="col-span-2">

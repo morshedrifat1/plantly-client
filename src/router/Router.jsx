@@ -10,6 +10,7 @@ import MyTips from "../Pages/MyTips";
 import ErrorPage from "../Pages/ErrorPage";
 import UpdateTips from "../Pages/UpdateTips";
 import LoadingSpiner from "../Components/LoadingSpiner";
+import TipsDetails from "../Pages/TipsDetails";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        hydrateFallbackElement:<LoadingSpiner></LoadingSpiner>,
+        hydrateFallbackElement: <LoadingSpiner></LoadingSpiner>,
         loader: () => fetch("http://localhost:5000/gardeners/active"),
       },
       { path: "/auth/login", Component: Login },
@@ -30,6 +31,12 @@ export const router = createBrowserRouter([
       { path: "/share-tips", Component: ShareGardenTip },
       { path: "/my-tips", Component: MyTips },
       { path: "/update-tips", Component: UpdateTips },
+      {
+        path: "/tips/:id",
+        Component: TipsDetails,
+        hydrateFallbackElement: <LoadingSpiner></LoadingSpiner>,
+        loader: ({params}) => fetch(`http://localhost:5000/tips/${params.id}`),
+      },
     ],
   },
 ]);

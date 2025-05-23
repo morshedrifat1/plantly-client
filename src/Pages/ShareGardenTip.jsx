@@ -2,15 +2,37 @@ import React, { use } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import { Slide, toast } from "react-toastify";
 
 const ShareGardenTip = () => {
-    const{user}=use(AuthContext)
-  const handleAddTips = (e) => {
+    const{user}=use(AuthContext);
+    const handleAddTips = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const tips = Object.fromEntries(formData.entries());
-    console.log(tips);
+    const likeTips = 0;
+    const tipsData = {...tips,likeTips}
+    
+    fetch('http://localhost:5000/tips',{
+      method:'POST',
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(tipsData)
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+      if(data.insertedId){
+        e.target.reset();
+        toast.success("🎉 Tips add successful ", {
+          autoClose: 3000,
+          hideProgressBar: true,
+          transition: Slide,
+        });
+        e.target.reset();
+      }
+    })
 
   };
   return (
@@ -41,10 +63,11 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <input
+                required
                   name="title"
                   type="text"
                   placeholder="Plant Tips Title"
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
               <div className="col-span-2 sm:col-span-1">
@@ -53,10 +76,11 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <input
+                required
                   name="topic"
                   type="text"
                   placeholder="Enter Plant Type/Topic"
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
               <div className="col-span-2 sm:col-span-1">
@@ -65,7 +89,8 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <select
-                  className="border border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                required
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                   defaultValue="Select Level"
                   name="workLevel"
                 >
@@ -83,7 +108,8 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <select
-                  className="border border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                required
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                   defaultValue="Select Category"
                   name="category"
                 >
@@ -101,7 +127,8 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <select
-                  className="border border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                required
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3  rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                   defaultValue="Availability (Public or Hidden)"
                   name="availability"
                 >
@@ -118,10 +145,11 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <input
+                required
                   name="photos"
                   type="text"
                   placeholder="Enter photo URL"
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
               <div className="col-span-2 sm:col-span-1">
@@ -130,11 +158,12 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <input
+                required
                   name="email"
                   type="email"
                   placeholder="Enter Your Email"
                   value={user?.email}
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
               <div className="col-span-2 sm:col-span-1">
@@ -143,11 +172,12 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <input
+                required
                   name="name"
                   type="text"
                   placeholder="Enter Your Name"
                   value={user?.displayName}
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1"
                 />
               </div>
               <div className="col-span-2">
@@ -156,17 +186,18 @@ const ShareGardenTip = () => {
                 </label>
                 <br />
                 <textarea
+                required
                   name="description"
                   type="text"
                   placeholder="Write Your Tips"
-                  className="border border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1 h-20"
+                  className="border font-text text-gray-700 dark:text-gray-300 border-gray-300 py-3 px-3 rounded-lg focus:border-gray-500 focus:outline-none w-full text-sm font-normal dark:bg-[#1e293b] dark:border-0 mt-1 h-20"
                 />
               </div>
               <div className="col-span-2">
                 <input
                   type="submit"
                   value="Add Tips"
-                  className="text-white bg-gradient-to-r from-[#33622a] to-[#94b834] rounded-lg text-base py-2 flex items-center justify-center gap-2 mx-auto mt-5 w-[200px]"
+                  className="text-white bg-gradient-to-r from-[#33622a] to-[#94b834] rounded-lg text-base py-2 flex items-center justify-center gap-2 mx-auto mt-5 w-[200px] cursor-pointer"
                 />
               </div>
             </div>
