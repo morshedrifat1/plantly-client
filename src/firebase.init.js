@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDh7IpS8haps8X7y-bbPvd4THPYu1VCQBM",
-  authDomain: "plantly-react-app.firebaseapp.com",
-  projectId: "plantly-react-app",
-  storageBucket: "plantly-react-app.firebasestorage.app",
-  messagingSenderId: "281132992753",
-  appId: "1:281132992753:web:fd3dc0a156df15960c8150",
+  apiKey:import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

@@ -42,8 +42,8 @@ const TipsDetails = () => {
       <Helmet>
         <title>Plantly | Tips Details</title>
       </Helmet>
-      <div className="max-w-[1020px] mx-auto p-5 my-10">
-        <div className="cursor-pointer ">
+      <div className="max-w-[1020px] mx-auto p-5">
+        <div className="cursor-pointer py-10">
           <div className="shadow rounded-lg border-2 border-base-200 relative pb-5 dark:bg-[#0b1120] bg-[#fbfcfd]">
             <div className="p-3">
               <img

@@ -61,7 +61,7 @@ const MyTips = () => {
           <Helmet>
         <title>Plantly | My Tips</title>
       </Helmet>
-          <div className="max-w-[1420px] mx-auto  mb-20 mt-10">
+          <div className="max-w-[1420px] mx-auto pb-20 pt-10">
             <div className="p-5">
               <div>
                 <div

@@ -9,7 +9,7 @@ import { Link } from "react-router";
 import { Autoplay } from "swiper/modules";
 import { BiLike, BiSolidLike } from "react-icons/bi";
 import { AuthContext } from "../Context/AuthContext";
-const TrendingTips = ({ TipsData }) => {
+const TrendingTips = ({ tipsData }) => {
     const {user}=use(AuthContext);
     const email = user?.email;
   const swiperRef = useRef(null);
@@ -67,7 +67,7 @@ const TrendingTips = ({ TipsData }) => {
         }}
         ref={swiperRef}
       >
-        {TipsData.map((data) => (
+        {tipsData.map((data) => (
           <SwiperSlide>
             <div className="cursor-pointer ">
               <div className="shadow rounded-lg border-2 border-base-200 relative pb-5 dark:bg-[#0b1120]">
@@ -80,11 +80,11 @@ const TrendingTips = ({ TipsData }) => {
                 </div>
                 <div className="flex justify-between px-4 mt-3">
                   <h1 className="font-text text-lg font-semibold">
-                    {data.title.split(" ").slice(0, 5).join(" ")}
+                    {data.title?.split(" ").slice(0, 5).join(" ")}
                   </h1>
                 </div>
                 <div className="px-4 mt-3">
-                  <p className="font-heading font-base leading-7">{data.description.split(" ").slice(0, 16).join(" ")}</p>
+                  <p className="font-heading font-base leading-7">{data.description?.split(" ").slice(0, 13).join(" ")}<span className="text-2xl"> ...</span></p>
                   <div className="flex justify-between mt-3">
                     <Link to={`tips/${data._id}`}><button className="btn">Details</button></Link>
                     <div className="flex items-center gap-1 text-base font-semibold bg-[#e9ebef] dark:bg-[#212635] px-2 py-1  rounded-xl">

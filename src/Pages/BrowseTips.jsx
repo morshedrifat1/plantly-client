@@ -34,8 +34,8 @@ const BrowseTips = () => {
           <Helmet>
             <title>Plantly | Tips</title>
           </Helmet>
-          <div className="max-w-[1420px] mx-auto  pb-20 pt-10">
-            <div className="px-5">
+          <div className="max-w-[1420px] mx-auto  pb-20">
+            <div className="px-5 pt-10">
               <div
                 className="relative w-full h-70 bg-cover bg-center rounded-lg"
                 style={{

@@ -12,7 +12,7 @@ const ExploreGardeners = () => {
       <Helmet>
         <title>Plantly | Gardeners</title>
       </Helmet>
-      <div className="max-w-[1420px] mx-auto mt-10 mb-20">
+      <div className="max-w-[1420px] mx-auto pt-10 pb-20">
         <div className="px-5">
           <div
             className="relative w-full h-70 bg-cover bg-center rounded-lg"
