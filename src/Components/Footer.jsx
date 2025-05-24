@@ -18,7 +18,7 @@ const Footer = () => {
           </p>
         </aside>
         <nav className="space-y-.5">
-          <h6 className="text-lg font-bold text-gray-900">
+          <h6 className="text-lg font-bold text-gray-900 dark:text-white">
             Gardening
           </h6>
           <Link className="link link-hover text-base">Resources</Link>
@@ -27,13 +27,13 @@ const Footer = () => {
           <Link className="link link-hover text-base">Shop</Link>
         </nav>
         <nav className="space-y-.5">
-          <h6 className="text-lg font-bold text-gray-900">Legal</h6>
+          <h6 className="text-lg font-bold text-gray-900 dark:text-white">Legal</h6>
           <Link className="link link-hover text-base">Terms of Service</Link>
           <Link className="link link-hover text-base">Privacy policy</Link>
           <Link className="link link-hover text-base">Cookie policy</Link>
         </nav>
         <nav>
-          <h6 className="text-lg font-bold text-gray-900">Contact Us</h6>
+          <h6 className="text-lg font-bold text-gray-900 dark:text-white">Contact Us</h6>
           <div className="space-y-3">
             <p className="flex items-center gap-2 text-base ">
               <IoIosMail size={22} />

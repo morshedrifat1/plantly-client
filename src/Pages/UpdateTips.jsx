@@ -47,7 +47,7 @@ const UpdateTips = () => {
           Back to home
         </Link>
         <div className="bg-[#f8fbfe] dark:bg-[#0b1120] p-5 md:p-20 mt-12 rounded-lg">
-          <h1 className="font-heading text-3xl sm:text-4xl text-center text-heading font-bold">
+          <h1 className="font-heading text-3xl sm:text-4xl text-center text-heading font-bold leading-11">
             🌿 Update Your Tips
           </h1>
           <p className="font-text text-gray-500 text-base text-center max-w-[670px] mx-auto mt-5 leading-7">

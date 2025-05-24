@@ -53,7 +53,7 @@ const ShareGardenTip = () => {
           </Link>
         </div>
         <div className="bg-[#f8fbfe] dark:bg-[#0b1120] px-5 md:p-20 mt-10 rounded-lg py-10">
-          <h1 className="font-heading text-3xl sm:text-4xl text-center text-heading font-bold">
+          <h1 className="font-heading text-3xl sm:text-4xl text-center text-heading font-bold leading-11">
             🌱Share a Garden Tips
           </h1>
           <p className="font-text text-gray-500 text-base text-center max-w-[650px] mx-auto mt-5 leading-7">
