@@ -68,7 +68,7 @@ const Header = () => {
                   <div className="ring-btn ring-offset-base-100 w-8 h-8 rounded-full ring-1 ring-offset-2">
                     <img src={user ? user?.photoURL : userImg} />
                   </div>
-                  <NavLink className="text-base font-medium" to={"/my-profile"}>
+                  <NavLink className="text-base font-medium">
                     My Profile
                   </NavLink>
                 </div>

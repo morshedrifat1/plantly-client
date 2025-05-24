@@ -12,31 +12,38 @@ import {
 import { GoogleAuthProvider } from "firebase/auth";
 
 const AuthProvider = ({ children }) => {
+  const [loader,setLoader] = useState(true)
     const [user,setUser] = useState(null)
   const provider = new GoogleAuthProvider();
   const userSignup = (email, password) => {
+    setLoader(true)
     return createUserWithEmailAndPassword (auth, email, password);
   };
   const userLogin = (email, password) => {
-    console.log(email,password);
+    setLoader(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
   const userGoogleSignIn = () => {
+    setLoader(true)
     return signInWithPopup(auth, provider);
   };
   const userSignout = () => {
+    setLoader(true)
     setUser(null)
     return signOut(auth);
   };
   const passwordReset = (email) =>{
+    setLoader(true)
     return sendPasswordResetEmail(auth,email);
   }
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
+        setLoader(false)
         setUser(currentUser)
       } else {
+        setLoader(false)
         // User is signed out
       }
     });
@@ -51,7 +58,8 @@ const AuthProvider = ({ children }) => {
     userLogin,
     userGoogleSignIn,
     userSignout,
-    passwordReset
+    passwordReset,
+    loader
   };
   return <AuthContext value={userInfo}>{children}</AuthContext>;
 };

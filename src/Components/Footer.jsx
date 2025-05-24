@@ -7,25 +7,24 @@ import { MdPhoneInTalk } from "react-icons/md";
 import { FiMapPin } from "react-icons/fi";
 import { BsTwitterX } from "react-icons/bs";
 const Footer = () => {
-
   return (
     <div className="bg-[#fafcff] dark:bg-[#0b1123]">
       <footer className="footer sm:footer-horizontal  text-base-content pt-10 px-5 max-w-[1420px] mx-auto rounded-lg">
         <aside className="w-80 md:w-90">
           <img className="w-40" src={logo} alt="" />
           <p className="leading-7 mt-2 text-base font-normal">
-            Apploom is a cutting-edge app development company specializing in
-            building high-performance mobile and web applications.
+            Plantly is a modern platform connecting plant lovers, offering
+            expert gardening tips, tools, and a thriving green community.
           </p>
         </aside>
         <nav className="space-y-.5">
-          <h6 className="text-lg font-bold text-gray-900">Company</h6>
-          <Link className="link link-hover text-base">Developer Resources</Link>
-          <Link className="link link-hover text-base">About us</Link>
-          <Link to={"/contact"} className="link link-hover text-base">
-            Contact
-          </Link>
-          <a className="link link-hover text-base">Jobs</a>
+          <h6 className="text-lg font-bold text-gray-900">
+            Gardening
+          </h6>
+          <Link className="link link-hover text-base">Resources</Link>
+          <Link className="link link-hover text-base">About Us</Link>
+          <Link className="link link-hover text-base">Contact</Link>
+          <Link className="link link-hover text-base">Shop</Link>
         </nav>
         <nav className="space-y-.5">
           <h6 className="text-lg font-bold text-gray-900">Legal</h6>
@@ -38,7 +37,7 @@ const Footer = () => {
           <div className="space-y-3">
             <p className="flex items-center gap-2 text-base ">
               <IoIosMail size={22} />
-              hello@applooms.com
+              hello@plantly.com
             </p>
             <p className="flex items-center gap-2 text-base ">
               <MdPhoneInTalk size={22} />

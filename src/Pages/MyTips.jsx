@@ -1,10 +1,14 @@
-import React, { use, useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { TbEdit } from "react-icons/tb";
 import { Link } from "react-router";
-import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 import LoadingSpiner from "../Components/LoadingSpiner";
+import { AuthContext } from "../Context/AuthContext";
+import banner from "../assets/titleBanner.webp";
+import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const MyTips = () => {
   const { user } = use(AuthContext);
@@ -14,7 +18,7 @@ const MyTips = () => {
 
   useEffect(() => {
     setLoader(true);
-    fetch(`http://localhost:5000/my-tips?email=${email}`)
+    fetch(`https://plantly-server.vercel.app/my-tips?email=${email}`)
       .then((res) => res.json())
       .then((data) => {
         setLoader(false);
@@ -33,7 +37,7 @@ const MyTips = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/my-tips/${id}`, { method: "DELETE" })
+        fetch(`https://plantly-server.vercel.app/my-tips/${id}`, { method: "DELETE" })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
@@ -53,9 +57,44 @@ const MyTips = () => {
       {loader ? (
         <LoadingSpiner></LoadingSpiner>
       ) : (
-        <div className=" dark:bg-[#0f172a]  px-5">
-          <div className="max-w-[1420px] mx-auto  py-20">
-            <div className="overflow-x-auto rounded-box border border-base-content/5 bg-[#fafcff] dark:bg-[#0b1120]">
+        <div className=" dark:bg-[#0f172a] sm:px-5">
+          <Helmet>
+        <title>Plantly | My Tips</title>
+      </Helmet>
+          <div className="max-w-[1420px] mx-auto  mb-20 mt-10">
+            <div className="p-5">
+              <div>
+                <div
+                  className="relative w-full h-70 bg-cover bg-center rounded-lg"
+                  style={{
+                    backgroundImage: `url(${banner})`,
+                  }}
+                >
+                  {/* Overlay */}
+                  <div className="absolute h-70 inset-0 bg-black/50 backdrop-blur-[2px] flex items-center justify-center rounded-lg">
+                    {/* Text */}
+                    <div className="text-center text-white px-4 max-w-120 space-y-5">
+                      <h1 className="text-2xl sm:text-3xl font-bold mb-2">
+                        My Gardening Tips
+                      </h1>
+                      <p className="text-base font-text font-normal leading-8 mt-4">
+                        View and manage all the gardening tips you’ve shared.
+                        Keep track of your ideas and inspire others.
+                      </p>
+                      <Link
+                        className="bg-gradient-to-r from-[#33622a] to-[#94b834] text-white shadow-none py-1 rounded-lg justify-center mx-auto flex items-center w-[180px]"
+                        to={"/"}
+                      >
+                        <IoIosArrowRoundBack className="mt-1" size={30} />
+                        Back to home
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           <div className="px-5">
+             <div className="overflow-x-auto rounded-box border border-base-content/5 bg-[#fafcff] dark:bg-[#0b1120] mt-10">
               <table className="table ">
                 {/* head */}
                 <thead>
@@ -115,6 +154,7 @@ const MyTips = () => {
                 </tbody>
               </table>
             </div>
+           </div>
           </div>
         </div>
       )}

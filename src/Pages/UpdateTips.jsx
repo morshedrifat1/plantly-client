@@ -1,8 +1,10 @@
-import React, { use } from "react";
+import { use } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Link, useLoaderData } from "react-router";
-import { AuthContext } from "../Context/AuthContext";
 import { Slide, toast } from "react-toastify";
+import { AuthContext } from "../Context/AuthContext";
+import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const UpdateTips = () => {
   const { user } = use(AuthContext);
@@ -12,7 +14,7 @@ const UpdateTips = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newTips = Object.fromEntries(formData.entries());
-    fetch(`http://localhost:5000/update-tips/${oldTips._id}`,{
+    fetch(`https://plantly-server.vercel.app/update-tips/${oldTips._id}`,{
       method:"PUT",
       headers:{
         "Content-Type":"application/json"
@@ -33,6 +35,9 @@ const UpdateTips = () => {
   };
   return (
     <div className="dark:bg-[#0f172a] p-5">
+      <Helmet>
+        <title>Plantly | Update Tips</title>
+      </Helmet>
       <div className="max-w-[1320px] mx-auto py-20">
         <Link
           className="bg-gradient-to-r from-[#33622a] to-[#94b834] text-white shadow-none py-1 rounded-lg justify-center mx-auto flex items-center w-[180px]"

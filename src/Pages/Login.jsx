@@ -1,75 +1,82 @@
-import React, { use, useRef, useState } from 'react';
-import { AuthContext } from '../Context/AuthContext';
-import { Slide, toast } from 'react-toastify';
-import icon from '../assets/icon.png'
-import { MdOutlineRemoveRedEye } from 'react-icons/md';
-import { FaRegEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router';
+import React, { use, useRef, useState } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import { Slide, toast } from "react-toastify";
+import icon from "../assets/icon.png";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
-    const {userLogin,userGoogleSignIn,passwordReset} = use(AuthContext)
-    const [showPassword, setShowPassword] = useState(false);
-    const emailRef = useRef();
+  const { userLogin, userGoogleSignIn, passwordReset } = use(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const emailRef = useRef();
 
-    const handleLogin = (e) =>{
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        console.log(email,password);
-        userLogin(email,password)
-        .then(()=>{
-            toast.success("Login successful ", {
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    userLogin(email, password)
+      .then(() => {
+        toast.success("Login successful ", {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,
         });
         e.target.reset();
-        })
-        .catch((error)=>{
-            toast.error(error.message, {
+        navigate(location.state ? `${location.state}` : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message, {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,
         });
-        })
-    }
-    const handleSignInWithGoogle = () =>{
-        userGoogleSignIn()
-        .then(()=>{
-            toast.success("Login successful ", {
+      });
+  };
+  const handleSignInWithGoogle = () => {
+    userGoogleSignIn()
+      .then(() => {
+        toast.success("Login successful ", {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,
         });
-        })
-        .catch((error)=>{
-            toast.error(error.message, {
+        navigate(location.state ? `${location.state}` : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message, {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,
         });
-        })
-    } 
-    const handleForgatePassword =()=>{
-        const email = emailRef.current.value;
-        passwordReset(email)
-        .then(()=>{
-            toast.success("A password reset link has been sent to your email.", {
+      });
+  };
+  const handleForgatePassword = () => {
+    const email = emailRef.current.value;
+    passwordReset(email)
+      .then(() => {
+        toast.success("A password reset link has been sent to your email.", {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,
         });
-        })
-        .catch((error)=>{
-            toast.error(error.message, {
+      })
+      .catch((error) => {
+        toast.error(error.message, {
           autoClose: 3000,
           hideProgressBar: true,
           transition: Slide,
         });
-        })
-
-    }
-    return (
-        <div className="hero bg-base-200 rounded-lg min-h-screen mb-10 flex flex-col items-center justify-center px-5 py-10 dark:bg-[#0f172a]">
+      });
+  };
+  return (
+    <div className="hero bg-base-200 rounded-lg min-h-screen mb-10 flex flex-col items-center justify-center px-5 py-10 dark:bg-[#0f172a]">
+      <Helmet>
+        <title>Plantly | Login</title>
+      </Helmet>
       <div className="space-y-4">
         <img className="w-18 mx-auto" src={icon} alt="" />
         <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-600 dark:text-[#e2e8f0]">
@@ -110,7 +117,10 @@ const Login = () => {
                 )}
               </button>
             </div>
-            <div onClick={handleForgatePassword} className="mt-1 text-sm font-normal text-gray-500">
+            <div
+              onClick={handleForgatePassword}
+              className="mt-1 text-sm font-normal text-gray-500"
+            >
               <a className="link link-hover">Forgot password?</a>
             </div>
             <button
@@ -163,7 +173,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Login;

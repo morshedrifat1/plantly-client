@@ -5,6 +5,7 @@ import { AuthContext } from "../Context/AuthContext";
 import { toast,Slide } from "react-toastify";
 import icon from "../assets/icon.png";
 import { Link, useNavigate } from "react-router";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -108,6 +109,7 @@ const SignUp = () => {
           transition: Slide,
         });
         e.target.reset()
+
       })
       .catch((error) => {
         toast.error(error.message, {
@@ -136,6 +138,9 @@ const SignUp = () => {
   };
   return (
     <div className="hero bg-base-200 rounded-lg min-h-screen mb-10 flex flex-col items-center justify-center px-5 py-10 dark:bg-[#0f172a]">
+      <Helmet>
+        <title>Plantly | SignUp</title>
+      </Helmet>
       <div className="space-y-4">
         <img className="w-18 mx-auto" src={icon} alt="" />
         <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-600 dark:text-[#e2e8f0]">

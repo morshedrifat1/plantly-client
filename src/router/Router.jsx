@@ -11,6 +11,8 @@ import ShareGardenTip from "../Pages/ShareGardenTip";
 import SignUp from "../Pages/SignUp";
 import TipsDetails from "../Pages/TipsDetails";
 import UpdateTips from "../Pages/UpdateTips";
+import PrivateRoute from "./PrivateRoute";
+
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +24,7 @@ export const router = createBrowserRouter([
         index: true,
         Component: Home,
         hydrateFallbackElement: <LoadingSpiner></LoadingSpiner>,
-        loader: () => fetch("http://localhost:5000/gardeners/active"),
+        loader: () => fetch("https://plantly-server.vercel.app/gardeners/active"),
       },
       { path: "/auth/login", Component: Login },
       { path: "/auth/signUp", Component: SignUp },
@@ -30,24 +32,38 @@ export const router = createBrowserRouter([
         path: "/explore-gardeners",
         Component: ExploreGardeners,
         hydrateFallbackElement: <LoadingSpiner></LoadingSpiner>,
-        loader: () => fetch("http://localhost:5000/gardeners"),
+        loader: () => fetch("https://plantly-server.vercel.app/gardeners"),
       },
       { path: "/tips", Component: BrowseTips },
-      { path: "/share-tips", Component: ShareGardenTip },
-      { path: "/my-tips", Component: MyTips },
+      {
+        path: "/share-tips",
+        element: (
+          <PrivateRoute>
+            <ShareGardenTip></ShareGardenTip>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-tips",
+        element: (
+          <PrivateRoute>
+            <MyTips></MyTips>
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/update-tips/:id",
         Component: UpdateTips,
         hydrateFallbackElement: <LoadingSpiner></LoadingSpiner>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/update-tips/${params.id}`),
+          fetch(`https://plantly-server.vercel.app/update-tips/${params.id}`),
       },
       {
         path: "/tips/:id",
         Component: TipsDetails,
         hydrateFallbackElement: <LoadingSpiner></LoadingSpiner>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tips/${params.id}`),
+          fetch(`https://plantly-server.vercel.app/tips/${params.id}`),
       },
     ],
   },

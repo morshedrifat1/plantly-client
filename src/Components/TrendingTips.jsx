@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { use, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -7,8 +7,11 @@ import { Navigation } from "swiper/modules";
 import { GoArrowUpRight } from "react-icons/go";
 import { Link } from "react-router";
 import { Autoplay } from "swiper/modules";
-import { BiLike } from "react-icons/bi";
+import { BiLike, BiSolidLike } from "react-icons/bi";
+import { AuthContext } from "../Context/AuthContext";
 const TrendingTips = ({ TipsData }) => {
+    const {user}=use(AuthContext);
+    const email = user?.email;
   const swiperRef = useRef(null);
   useEffect(() => {
     const handleResize = () => {
@@ -27,7 +30,7 @@ const TrendingTips = ({ TipsData }) => {
     <>
       <div className="flex justify-between gap-5 items-center mb-10">
         <h1 className="text-xl sm:text-3xl flex-1 font-bold">
-          Explore Active Gardeners
+          Explore Trending Tips
         </h1>
         <Link to={"/tips"}>
           <button className="flex items-center gap-1 text-lg font-bold underline cursor-pointer">
@@ -64,34 +67,34 @@ const TrendingTips = ({ TipsData }) => {
         }}
         ref={swiperRef}
       >
-        {TipsData.map((Data) => (
+        {TipsData.map((data) => (
           <SwiperSlide>
             <div className="cursor-pointer ">
               <div className="shadow rounded-lg border-2 border-base-200 relative pb-5 dark:bg-[#0b1120]">
                 <div className="p-3">
                   <img
                     className="rounded-lg h-[200px] w-full object-cover"
-                    src={Data.photos}
+                    src={data.photos}
                     alt=""
                   />
                 </div>
                 <div className="flex justify-between px-4 mt-3">
                   <h1 className="font-text text-lg font-semibold">
-                    {Data.title.split(" ").slice(0, 5).join(" ")}
+                    {data.title.split(" ").slice(0, 5).join(" ")}
                   </h1>
                 </div>
                 <div className="px-4 mt-3">
-                  <p className="font-heading font-base leading-7">{Data.description.split(" ").slice(0, 16).join(" ")}</p>
+                  <p className="font-heading font-base leading-7">{data.description.split(" ").slice(0, 16).join(" ")}</p>
                   <div className="flex justify-between mt-3">
-                    <Link to={`tips/${Data._id}`}><button className="btn">Details</button></Link>
+                    <Link to={`tips/${data._id}`}><button className="btn">Details</button></Link>
                     <div className="flex items-center gap-1 text-base font-semibold bg-[#e9ebef] dark:bg-[#212635] px-2 py-1  rounded-xl">
-                      <BiLike size={20} />
-                      <span>{Data.likeTips}</span>
+                      {data.likeTipsUser?.includes(email)?<BiSolidLike size={20} />:<BiLike size={20} />}
+                      <span>{data.likeTips}</span>
                     </div>
                   </div>
                 </div>
                 <span className="bg-gradient-to-r from-[#96bb35] via-[#437631] to-[#2e5a28] text-white px-3 py-1 rounded-full text-xs font-bold uppercase absolute top-5 right-5 cursor-pointer">
-                  {Data.category}
+                  {data.category}
                 </span>
               </div>
             </div>
