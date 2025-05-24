@@ -27,7 +27,7 @@ const Footer = () => {
           <Link className="link link-hover text-base">Shop</Link>
         </nav>
         <nav className="space-y-.5">
-          <h6 className="text-lg font-bold text-gray-900 dark:text-white">Legal</h6>
+          <h6 className="text-lg font-bold text-gray-900 dark:text-white">Terms</h6>
           <Link className="link link-hover text-base">Terms of Service</Link>
           <Link className="link link-hover text-base">Privacy policy</Link>
           <Link className="link link-hover text-base">Cookie policy</Link>
