@@ -34,7 +34,7 @@ const Home = () => {
           <TrendingTips tipsData={tipsData}></TrendingTips>
         </section>
         <section>
-          <div className="my-10">
+          <div className="my-20">
             <div
               className="relative w-full h-120 sm:h-80 bg-cover bg-center rounded-lg"
               style={{
@@ -64,9 +64,9 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="mt-15">
+        <section className="mt-10 sm:mt-15">
           <div className="mb-8 max-w-110 mx-auto">
-            <h1 className="text-xl sm:text-4xl flex-1 font-bold  text-center text-gray-800 dark:text-white">
+            <h1 className="text-3xl sm:text-4xl flex-1 font-bold  text-center text-gray-800 dark:text-white">
               Plant Care Showcase
             </h1>
             <p className="text-center font-heading text-base mt-2.5 leading-7 text-gray-700 dark:text-gray-200/80">
