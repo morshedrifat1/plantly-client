@@ -2,7 +2,7 @@ import React from "react";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import { Link, useLoaderData } from "react-router";
 import banner from "../assets/titleBanner.webp";
-import { IoIosArrowRoundBack } from "react-icons/io";
+import { IoIosArrowRoundBack, IoIosMale } from "react-icons/io";
 import { Helmet } from "react-helmet-async";
 
 const ExploreGardeners = () => {
@@ -53,13 +53,22 @@ const ExploreGardeners = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex justify-between px-4 mt-3">
-                  <h1 className="font-text text-lg font-semibold">
+                <div className="mt-3">
+                  <h1 className="font-text text-lg font-semibold px-4">
                     {gardener.name}
                   </h1>
+                  <div className="flex gap-3 px-4 mt-2">
+                    <div className="flex items-center gap-1 text-base font-semibold bg-[#e9ebef] dark:bg-[#212635] px-2 py-1  rounded-xl">
+                    <span>{gardener.gender}</span>
+                  </div>
                   <div className="flex items-center gap-1 text-base font-semibold bg-[#e9ebef] dark:bg-[#212635] px-2 py-1  rounded-xl">
-                    <MdOutlineTipsAndUpdates size={20} />
+                    Age:
+                    <span>{gardener.age}</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-base font-semibold bg-[#e9ebef] dark:bg-[#212635] px-2 py-1  rounded-xl">
+                    Tips:
                     <span>{gardener.sharedTips}</span>
+                  </div>
                   </div>
                 </div>
                 <div className="px-4 mt-3">

@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/update-tips/:id",
-        Component: UpdateTips,
+        element: <PrivateRoute><UpdateTips></UpdateTips></PrivateRoute>,
         hydrateFallbackElement: <LoadingSpiner></LoadingSpiner>,
         loader: ({ params }) =>
           fetch(`https://plantly-server.vercel.app/update-tips/${params.id}`),
