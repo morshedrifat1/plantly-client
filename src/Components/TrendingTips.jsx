@@ -67,7 +67,7 @@ const TrendingTips = ({ tipsData }) => {
         }}
         ref={swiperRef}
       >
-        {tipsData.map((data) => (
+        {tipsData?.map((data) => (
           <SwiperSlide>
             <div className="cursor-pointer ">
               <div className="shadow rounded-lg border-2 border-base-200 relative pb-5 dark:bg-[#0b1120]">

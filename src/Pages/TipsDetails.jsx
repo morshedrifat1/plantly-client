@@ -15,10 +15,10 @@ const TipsDetails = () => {
   const isLiked = likedUser.includes(email);
   const [like, setLike] = useState(tips?.likeTips);
   const handleLike = (id) => {
-    if (isLiked) {
+    if (isLiked && !user.email) {
       return;
     }
-    if (!isLiked) {
+    if (!isLiked && user.email ) {
       const newLiked = {
         likeTipsUser: email,
       };

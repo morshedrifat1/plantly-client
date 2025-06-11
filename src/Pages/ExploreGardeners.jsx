@@ -43,7 +43,7 @@ const ExploreGardeners = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 px-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-10">
-          {gardeners.map((gardener) => (
+          {gardeners?.map((gardener) => (
             <div className="cursor-pointer ">
               <div className="shadow rounded-lg border-2 border-base-200 relative pb-5 dark:bg-[#0b1120]">
                 <div className="p-3">

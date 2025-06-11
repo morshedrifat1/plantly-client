@@ -105,7 +105,7 @@ const BrowseTips = () => {
                 </thead>
                 <tbody>
                   {/* row 1 */}
-                  {tips.map((tip, index) => (
+                  {tips?.map((tip, index) => (
                     <tr key={index}>
                       <th className="dark:text-[#94a3b8] font-text whitespace-nowrap">
                         {index + 1}

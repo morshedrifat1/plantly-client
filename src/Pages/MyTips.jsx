@@ -118,7 +118,7 @@ const MyTips = () => {
                 </thead>
                 <tbody>
                   {/* row 1 */}
-                  {myTips.map((tip, index) => (
+                  {myTips?.map((tip, index) => (
                     <tr key={index}>
                       <th className="dark:text-[#94a3b8] font-text whitespace-nowrap">
                         {index + 1}

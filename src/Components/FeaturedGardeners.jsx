@@ -64,7 +64,7 @@ const FeaturedGardeners = ({ gardeners }) => {
         }}
         ref={swiperRef}
       >
-        {gardeners.map((gardener) => (
+        {gardeners?.map((gardener) => (
           <SwiperSlide>
             <div className="cursor-pointer ">
               <div className="shadow rounded-lg border-2 border-base-200 relative pb-5 dark:bg-[#0b1120]">
